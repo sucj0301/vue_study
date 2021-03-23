@@ -17,15 +17,15 @@ module.exports = {
     devServer: {
         publicPath: Setting.publicPath,
         // 配置跨域
-        // proxy: {
-        //     '/api': {
-        //         target: 'http://122.xx.xxx.xxx', // 跨域地址
-        //         changeOrigin: true, // 开启跨域
-        //         pathRewrite: {
-        //             '^/api': '' // 把前缀是api 的都换为/
-        //         }
-        //     }
-        // }
+        proxy: {
+            '/api': {
+                target: 'http://122.xx.xxx.xxx', // 跨域地址
+                changeOrigin: true, // 开启跨域
+                pathRewrite: {
+                    '^/api': '' // 把前缀是api 的都换为/
+                }
+            }
+        }
     },
     css: {
         loaderOptions: {
