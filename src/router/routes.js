@@ -10,6 +10,7 @@ import editor from './modules/editor';
 import tool from './modules/tool';
 
 import BasicLayout from '@/layouts/basic-layout';
+import test from "./modules/test";
 
 /**
  * 在主框架内显示
@@ -92,7 +93,8 @@ const frameIn = [
     exception,
     setting,
     editor,
-    tool
+    tool,
+    test
 ];
 
 /**

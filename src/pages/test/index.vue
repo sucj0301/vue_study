@@ -23,46 +23,62 @@
 
 
 <!--        问卷调查-->
-        <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">
-            <FormItem label="1.请问您的姓名是？" prop="name">
-                <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>
-            </FormItem>
-            <FormItem label="3.请问您的科目是？" prop="subject">
-                <Select v-model="formValidate.subject" placeholder="请选择科目">
-                    <Option value="beijing">语文</Option>
-                    <Option value="shanghai">数学</Option>
-                </Select>
-            </FormItem>
-            <FormItem label="4.请问您的性别是？" prop="gender">
-                <RadioGroup v-model="formValidate.gender" vertical>
-                    <Radio label="male">男</Radio>
-                    <Radio label="female">女</Radio>
-                    <Radio label="secret">保密</Radio>
-                </RadioGroup>
-            </FormItem>
-            <FormItem label="5.请选择您的兴趣爱好：" prop="interest">
-                <CheckboxGroup v-model="formValidate.interest" style="display: flex;flex-direction: column">
-                    <Checkbox label="吃饭"></Checkbox>
-                    <Checkbox label="睡觉"></Checkbox>
-                    <Checkbox label="打豆豆"></Checkbox>
-                </CheckboxGroup>
-            </FormItem>
-            <FormItem label="6.请介绍一下你自己：" prop="desc">
-                <Input v-model="formValidate.desc" type="textarea" :autosize="{minRows: 2,maxRows: 5}"></Input>
-            </FormItem>
-            <FormItem>
-                <Button type="primary" @click="handleSubmit('formValidate')">提交</Button>
-                <Button @click="handleReset('formValidate')" class="ivu-ml-8">重置</Button>
-            </FormItem>
-        </Form>
+<!--        <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" label-position="top">-->
+<!--            <FormItem label="1.请问您的姓名是？" prop="name">-->
+<!--                <Input v-model="formValidate.name" placeholder="请输入姓名"></Input>-->
+<!--            </FormItem>-->
+<!--            <FormItem label="3.请问您的科目是？" prop="subject">-->
+<!--                <Select v-model="formValidate.subject" placeholder="请选择科目">-->
+<!--                    <Option value="beijing">语文</Option>-->
+<!--                    <Option value="shanghai">数学</Option>-->
+<!--                </Select>-->
+<!--            </FormItem>-->
+<!--            <FormItem label="4.请问您的性别是？" prop="gender">-->
+<!--                <RadioGroup v-model="formValidate.gender" vertical>-->
+<!--                    <Radio label="male">男</Radio>-->
+<!--                    <Radio label="female">女</Radio>-->
+<!--                    <Radio label="secret">保密</Radio>-->
+<!--                </RadioGroup>-->
+<!--            </FormItem>-->
+<!--            <FormItem label="5.请选择您的兴趣爱好：" prop="interest">-->
+<!--                <CheckboxGroup v-model="formValidate.interest" style="display: flex;flex-direction: column">-->
+<!--                    <Checkbox label="吃饭"></Checkbox>-->
+<!--                    <Checkbox label="睡觉"></Checkbox>-->
+<!--                    <Checkbox label="打豆豆"></Checkbox>-->
+<!--                </CheckboxGroup>-->
+<!--            </FormItem>-->
+<!--            <FormItem label="6.请介绍一下你自己：" prop="desc">-->
+<!--                <Input v-model="formValidate.desc" type="textarea" :autosize="{minRows: 2,maxRows: 5}"></Input>-->
+<!--            </FormItem>-->
+<!--            <FormItem>-->
+<!--                <Button type="primary" @click="handleSubmit('formValidate')">提交</Button>-->
+<!--                <Button @click="handleReset('formValidate')" class="ivu-ml-8">重置</Button>-->
+<!--            </FormItem>-->
+<!--        </Form>-->
+
+
+        <Card :bordered="false" dis-hover class="ivu-mb">
+            <div slot="title">
+                <Avatar icon="md-heart" size="small" v-color="'#ff4d4f'" v-bg-color="'#fff1f0'" />
+                <span class="ivu-pl-8">测试模块</span>
+            </div>
+            <div slot="extra">
+                <Tooltip placement="top" content="配置">
+                    <Icon type="md-settings" />
+                </Tooltip>
+            </div>
+            <shortcut />
+        </Card>
     </div>
 </template>
 
 <script>
-    <!--  jsonp解决跨域问题  -->
+    // <!--  jsonp解决跨域问题  -->
     // var script = document.createElement('script');
     // script.type = 'text/javascript';
     // script.src = 'http://www.b.com/getdata?callback=demo';
+
+    import shortcut from "./shortcut";
 
     import Clipboard from 'clipboard';
 
@@ -76,6 +92,9 @@
                 default: 'https//dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar'
                 // default: 'http://storage-1252908908.cos.ap-shanghai.myqcloud.com/44a88fa6b33ddde657d699406de528ab.jpg'
             }
+        },
+        components: {
+            shortcut
         },
         data(){
             return {

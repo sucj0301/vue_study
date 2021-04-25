@@ -33,6 +33,7 @@
             }
         },
         mounted () {
+
             on(window, 'resize', this.handleWindowResize);
             this.handleMatchMedia();
             // todo 横幅

@@ -9,6 +9,7 @@ import exception from './modules/exception';
 import setting from './modules/setting';
 import editor from './modules/editor';
 import tool from './modules/tool';
+import test from "./modules/test";
 
 // 系统
 import log from './modules/log';
@@ -24,6 +25,7 @@ export default [
     setting,
     editor,
     tool,
+    test,
     {
         path: '/i18n',
         title: '$t:menu.i18n',
